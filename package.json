@@ -14,12 +14,15 @@
     "package": "npm run build; npm run package-osx; npm run package-win; npm run package-linux;",
     "package-osx": "electron-packager ./ --platform=darwin --arch=x64 --icon=assets/app.icns --out=package --asar --overwrite=force",
     "package-win": "electron-packager ./ --platform=win32 --arch=ia32 --icon=assets/app.ico --out=package --asar --overwrite=force",
-    "package-linux": "electron-packager ./ --platform=linux --arch=ia32 --icon=assets/app.ico --out=package --asar --overwrite=force"
+    "package-linux": "electron-packager ./ --platform=linux --arch=ia32 --icon=assets/app.ico --out=package --asar --overwrite=force",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
     "electron": "^1.8.2",
     "vue": "^2.5.13",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -34,7 +37,8 @@
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13",
     "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
+    "webpack-cli": "^3.0.0",
     "webpack-dev-server": "^3.1.0"
-  }
+  },
+  "snyk": true
 }
